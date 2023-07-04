@@ -1,10 +1,5 @@
 Ouvrez deux terminaux dans VS Code. Pour le premier terminal ( application express ), exécutez :
 
-- cd client
-- npm i
-- npm run start
-
-- cd server
 - npm i
 - npm run dev
 
