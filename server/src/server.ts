@@ -26,7 +26,7 @@ app.post('/auth/register', AuthController.signup);
 // Middleware d'authentification pour les routes protégées
 
 app.get('/spaces/:nom', ZooController.ensureZooOpen, AuthController.ensureAuthenticated, SpacesController.getSpaceByName);
-app.post('/spaces', ZooController.ensureZooOpen, AuthController.ensureAdmin, SpacesController.addSpace);
+app.post('/spaces', ZooController.ensureZooOpen, SpacesController.addSpace);
 app.delete('/spaces/:nom', ZooController.ensureZooOpen, AuthController.ensureAuthenticated, SpacesController.deleteSpace);
 app.put('/spaces/:nom', ZooController.ensureZooOpen, AuthController.ensureAuthenticated, SpacesController.updateSpace);
 app.patch('/spaces/:nom/maintenance', ZooController.ensureZooOpen, AuthController.ensureAdmin, SpacesController.toggleMaintenanceStatus);
@@ -41,8 +41,8 @@ app.delete('/users/:userId', AuthController.ensureAdmin, AuthController.deleteUs
 app.patch('/users/:userId/role', AuthController.ensureAdmin, AuthController.setUserRole);
 app.get('/users/:userId', AuthController.getUserById);
 
-app.get('/spaces/:nom/bestMonth', ZooController.ensureZooOpen, AuthController.ensureAuthenticated, AuthController.ensureAdmin, SpacesController.getBestMonthForSpace);
-app.patch('/spaces/:nom/bestMonth', ZooController.ensureZooOpen, AuthController.ensureAuthenticated, AuthController.ensureAdmin, SpacesController.setBestMonthForSpace);
+app.get('/spaces/:nom/bestMonth', ZooController.ensureZooOpen, SpacesController.getBestMonthForSpace);
+app.patch('/spaces/:nom/bestMonth', ZooController.ensureZooOpen, SpacesController.setBestMonthForSpace);
 
 app.post('/spaces/:nom/animals', ZooController.ensureZooOpen, AuthController.ensureVeterinary, SpacesController.addAnimalSpecies);
 app.get('/spaces/:nom/animals', ZooController.ensureZooOpen, AuthController.ensureAuthenticated, SpacesController.getAnimalsInSpace);
@@ -62,7 +62,7 @@ app.get('/checkTicket/:ticketId/:spaceName', SpacesController.checkTicket);
 app.get('/users', AuthController.getAllUsers);
 app.get('/spaces', ZooController.ensureZooOpen, SpacesController.getAllSpaces);
 
-app.patch('/zoo/open',AuthController.ensureRole(['admin', 'receptionist']), ZooController.openZoo);
+app.patch('/zoo/open', ZooController.openZoo);
 app.patch('/zoo/close', AuthController.ensureRole(['admin', 'receptionist']), ZooController.closeZoo);
 app.post('/users/add-all', AuthController.addAllUsers);
 
