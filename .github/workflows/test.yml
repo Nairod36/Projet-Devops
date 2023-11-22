@@ -21,7 +21,8 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
-    - name: Build
-      steps:
+    - name: change
         run: cd client
+
+    - name: Build
         run: npm run build
