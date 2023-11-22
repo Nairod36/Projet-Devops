@@ -13,11 +13,21 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Set up Docker for Client
+      with:
+        dockerfile: ./client/Dockerfile
+        context: ./client
+
     - name: Build and Push Docker Image for Client
       run: |
         docker build -t nairod36/client-image:latest .
         docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_TOKEN }}
         docker push nairod36/client-image:latest
+
+    - name: Set up Docker for Server
+      with:
+        dockerfile: ./server/Dockerfile
+        context: ./server
 
     - name: Build and Push Docker Image for Server
       run: |
