@@ -12,19 +12,6 @@ env:
   IMAGE_NAME: ${{ github.repository }}
     
 jobs: 
-  # build: 
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #       - uses: actions/checkout@v3
-  #       - name: Build the Docker image
-  #         run: docker-compose build --no-cache 
-
-  # test: 
-  #   runs-on: ubuntu-latest
-  #   steps: 
-  #       - uses: actions/checkout@v3
-  #       - name: Docker image
-  #         run: docker-compose up -d
   push_registry:
     name: Push to Docker Hub
     runs-on: ubuntu-latest
