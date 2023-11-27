@@ -11,6 +11,4 @@ Un server local GO a été mit en place pour réaliser une veille sur les mises 
 - hotfix/ : Les branches de correction de bugs sont créées à partir de master pour résoudre des problèmes critiques en production. Elles sont ensuite fusionnées dans master et develop.
 
 ### Règles de Protection des Branches
-La branche PROD est protégée, nécessitant des validations pour être fusionnée.
-Les branches de version (release/*) nécessitent des validations pour garantir la stabilité avant la fusion dans master.
-Les branches de fonctionnalités (feature/*) peuvent être fusionnées dans develop après revue de code.
+La branche main est protégée, nécessitant des validations pour être fusionnée.
