@@ -1,5 +1,5 @@
 ## Server docker
-Un server local GO a été mit en place pour réaliser une veille sur les mises à jours de l'image de ce projet.
+Un server local a été mit en place pour réaliser une veille sur les mises à jours de l'image de ce projet.
 [docker-server](https://github.com/Nairod36/srvDocerHub)
 
 
